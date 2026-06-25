@@ -1,0 +1,1029 @@
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Педагогика | Магистратураға дайындық</title>
+
+  <style>
+    :root{
+      --bg:#f6f7fb;
+      --card:#ffffff;
+      --text:#172033;
+      --muted:#64748b;
+      --line:#e5e7eb;
+      --blue:#2563eb;
+      --blue-soft:#eff6ff;
+      --green:#16a34a;
+      --red:#dc2626;
+      --yellow:#f59e0b;
+      --shadow:0 10px 26px rgba(15,23,42,.07);
+      --radius:18px;
+    }
+
+    *{
+      box-sizing:border-box;
+    }
+
+    html{
+      scroll-behavior:smooth;
+    }
+
+    body{
+      margin:0;
+      font-family:Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background:var(--bg);
+      color:var(--text);
+      line-height:1.6;
+    }
+
+    body.lang-kz .ru{
+      display:none !important;
+    }
+
+    body.lang-ru .kz{
+      display:none !important;
+    }
+
+    a{
+      color:inherit;
+      text-decoration:none;
+    }
+
+    button{
+      font-family:inherit;
+    }
+
+    .page{
+      width:min(1180px, 100%);
+      margin:0 auto;
+      padding:18px;
+    }
+
+    .topbar{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+      margin-bottom:14px;
+    }
+
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      min-width:0;
+    }
+
+    .brand-logo{
+      width:38px;
+      height:38px;
+      border-radius:14px;
+      background:linear-gradient(135deg, #2563eb, #7c3aed);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      color:#fff;
+      font-weight:900;
+      flex:0 0 auto;
+      box-shadow:var(--shadow);
+    }
+
+    .brand-text{
+      min-width:0;
+    }
+
+    .brand-title{
+      margin:0;
+      font-size:16px;
+      line-height:1.2;
+      font-weight:900;
+      white-space:nowrap;
+      overflow:hidden;
+      text-overflow:ellipsis;
+    }
+
+    .brand-subtitle{
+      margin:2px 0 0;
+      font-size:12px;
+      color:var(--muted);
+      white-space:nowrap;
+      overflow:hidden;
+      text-overflow:ellipsis;
+    }
+
+    .lang-switch{
+      display:flex;
+      gap:6px;
+      background:#fff;
+      border:1px solid var(--line);
+      padding:5px;
+      border-radius:999px;
+      box-shadow:0 6px 20px rgba(15,23,42,.06);
+      flex:0 0 auto;
+    }
+
+    .lang-btn{
+      border:0;
+      background:transparent;
+      color:var(--muted);
+      font-size:13px;
+      font-weight:800;
+      padding:7px 11px;
+      border-radius:999px;
+      cursor:pointer;
+    }
+
+    body.lang-kz .lang-btn[data-lang="kz"],
+    body.lang-ru .lang-btn[data-lang="ru"]{
+      background:var(--blue);
+      color:#fff;
+    }
+
+    .hero{
+      background:
+        radial-gradient(circle at top left, rgba(37,99,235,.12), transparent 32%),
+        radial-gradient(circle at bottom right, rgba(124,58,237,.12), transparent 34%),
+        #fff;
+      border:1px solid var(--line);
+      border-radius:24px;
+      box-shadow:var(--shadow);
+      padding:20px;
+      margin-bottom:16px;
+    }
+
+    .hero-kicker{
+      display:inline-flex;
+      align-items:center;
+      gap:7px;
+      background:var(--blue-soft);
+      color:var(--blue);
+      border-radius:999px;
+      padding:6px 10px;
+      font-size:12px;
+      font-weight:900;
+      margin-bottom:10px;
+    }
+
+    .hero h1{
+      margin:0;
+      font-size:clamp(24px, 4vw, 42px);
+      line-height:1.08;
+      letter-spacing:-.03em;
+    }
+
+    .hero p{
+      max-width:760px;
+      margin:10px 0 0;
+      color:var(--muted);
+      font-size:15px;
+    }
+
+    .hero-meta{
+      display:flex;
+      flex-wrap:wrap;
+      gap:8px;
+      margin-top:14px;
+    }
+
+    .pill{
+      display:inline-flex;
+      align-items:center;
+      gap:6px;
+      padding:7px 10px;
+      background:#f8fafc;
+      border:1px solid var(--line);
+      border-radius:999px;
+      font-size:12px;
+      font-weight:800;
+      color:#334155;
+    }
+
+    .section-head{
+      display:flex;
+      align-items:flex-end;
+      justify-content:space-between;
+      gap:12px;
+      margin:18px 0 10px;
+    }
+
+    .section-head h2{
+      margin:0;
+      font-size:18px;
+      line-height:1.2;
+      letter-spacing:-.01em;
+    }
+
+    .section-head p{
+      margin:3px 0 0;
+      color:var(--muted);
+      font-size:13px;
+    }
+
+    .mini-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit, minmax(158px, 1fr));
+      gap:10px;
+    }
+
+    .chapter-card,
+    .mini-card{
+      border:1px solid var(--line);
+      background:var(--card);
+      color:var(--text);
+      border-radius:16px;
+      padding:12px;
+      text-align:left;
+      cursor:pointer;
+      box-shadow:0 8px 18px rgba(15,23,42,.055);
+      transition:.18s ease;
+      min-height:86px;
+    }
+
+    .chapter-card:hover,
+    .mini-card:hover{
+      transform:translateY(-2px);
+      border-color:#bfdbfe;
+      box-shadow:0 12px 26px rgba(37,99,235,.12);
+    }
+
+    .card-num{
+      width:27px;
+      height:27px;
+      border-radius:10px;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      background:var(--blue-soft);
+      color:var(--blue);
+      font-weight:900;
+      font-size:13px;
+      margin-bottom:8px;
+    }
+
+    .card-title{
+      display:block;
+      font-size:13px;
+      font-weight:900;
+      line-height:1.25;
+      margin-bottom:4px;
+    }
+
+    .card-sub{
+      display:block;
+      color:var(--muted);
+      font-size:11px;
+      line-height:1.25;
+    }
+
+    .chapter-page,
+    .content-page{
+      display:none;
+    }
+
+    .chapter-page.active,
+    .content-page.active{
+      display:block;
+    }
+
+    .back-row{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:10px;
+      margin:14px 0 12px;
+    }
+
+    .back-btn{
+      border:1px solid var(--line);
+      background:#fff;
+      color:#334155;
+      border-radius:999px;
+      padding:8px 12px;
+      font-size:13px;
+      font-weight:900;
+      cursor:pointer;
+      box-shadow:0 6px 16px rgba(15,23,42,.05);
+    }
+
+    .back-btn:hover{
+      border-color:#bfdbfe;
+      color:var(--blue);
+    }
+
+    .chapter-title-box{
+      background:#fff;
+      border:1px solid var(--line);
+      border-radius:18px;
+      padding:14px;
+      box-shadow:0 8px 18px rgba(15,23,42,.05);
+      margin-bottom:12px;
+    }
+
+    .chapter-title-box h2{
+      margin:0;
+      font-size:20px;
+      line-height:1.2;
+      letter-spacing:-.02em;
+    }
+
+    .chapter-title-box p{
+      margin:6px 0 0;
+      color:var(--muted);
+      font-size:13px;
+    }
+
+    .lesson{
+      background:#fff;
+      border:1px solid var(--line);
+      border-radius:20px;
+      box-shadow:var(--shadow);
+      padding:16px;
+      margin:14px 0;
+    }
+
+    .lesson h2{
+      margin:0 0 8px;
+      font-size:22px;
+      line-height:1.2;
+    }
+
+    .lesson h3{
+      margin:18px 0 8px;
+      font-size:17px;
+    }
+
+    .note{
+      border-left:4px solid var(--blue);
+      background:var(--blue-soft);
+      padding:12px;
+      border-radius:14px;
+      margin:12px 0;
+      color:#1e3a8a;
+      font-weight:700;
+      font-size:14px;
+    }
+
+    .term-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit, minmax(210px, 1fr));
+      gap:10px;
+      margin:10px 0;
+    }
+
+    .term{
+      background:#f8fafc;
+      border:1px solid var(--line);
+      border-radius:14px;
+      padding:11px;
+      font-size:14px;
+    }
+
+    .term b{
+      display:block;
+      margin-bottom:4px;
+    }
+
+    .quiz{
+      margin-top:14px;
+      display:grid;
+      gap:12px;
+    }
+
+    .question{
+      border:1px solid var(--line);
+      background:#fff;
+      border-radius:18px;
+      padding:14px;
+      box-shadow:0 6px 14px rgba(15,23,42,.04);
+    }
+
+    .q-title{
+      font-weight:900;
+      margin-bottom:9px;
+      line-height:1.35;
+    }
+
+    .options{
+      display:grid;
+      gap:7px;
+    }
+
+    .option{
+      display:flex;
+      gap:8px;
+      align-items:flex-start;
+      border:1px solid var(--line);
+      background:#f8fafc;
+      border-radius:12px;
+      padding:9px 10px;
+      cursor:pointer;
+      font-size:14px;
+      line-height:1.35;
+    }
+
+    .option input{
+      margin-top:3px;
+    }
+
+    .option.correct{
+      border-color:rgba(22,163,74,.45);
+      background:#ecfdf5;
+    }
+
+    .option.wrong{
+      border-color:rgba(220,38,38,.35);
+      background:#fef2f2;
+    }
+
+    .explanation{
+      display:none;
+      margin-top:10px;
+      border-radius:12px;
+      background:#f8fafc;
+      border:1px solid var(--line);
+      padding:10px;
+      font-size:14px;
+      color:#334155;
+    }
+
+    .explanation.show{
+      display:block;
+    }
+
+    .result-btn{
+      border:0;
+      background:var(--blue);
+      color:#fff;
+      border-radius:14px;
+      padding:11px 15px;
+      font-size:14px;
+      font-weight:900;
+      cursor:pointer;
+      box-shadow:0 10px 22px rgba(37,99,235,.22);
+      margin-top:12px;
+    }
+
+    .result-btn:hover{
+      filter:brightness(.96);
+    }
+
+    .score-box{
+      display:none;
+      margin-top:12px;
+      border:1px solid #bfdbfe;
+      background:#eff6ff;
+      color:#1e3a8a;
+      border-radius:14px;
+      padding:12px;
+      font-weight:900;
+    }
+
+    .score-box.show{
+      display:block;
+    }
+
+    .to-top{
+      position:fixed;
+      right:16px;
+      bottom:16px;
+      z-index:999;
+      border:0;
+      border-radius:999px;
+      background:var(--blue);
+      color:#fff;
+      padding:11px 13px;
+      font-size:13px;
+      font-weight:900;
+      cursor:pointer;
+      box-shadow:0 12px 26px rgba(37,99,235,.28);
+    }
+
+    .to-top:hover{
+      transform:translateY(-2px);
+    }
+
+    .hidden{
+      display:none !important;
+    }
+
+    @media(max-width:640px){
+      .page{
+        padding:12px;
+      }
+
+      .topbar{
+        align-items:flex-start;
+      }
+
+      .brand-title{
+        font-size:14px;
+      }
+
+      .hero{
+        padding:16px;
+        border-radius:20px;
+      }
+
+      .hero h1{
+        font-size:25px;
+      }
+
+      .mini-grid{
+        grid-template-columns:repeat(2, minmax(0, 1fr));
+        gap:8px;
+      }
+
+      .chapter-card,
+      .mini-card{
+        padding:10px;
+        border-radius:14px;
+        min-height:82px;
+      }
+
+      .card-title{
+        font-size:12px;
+      }
+
+      .card-sub{
+        font-size:10.5px;
+      }
+
+      .to-top{
+        right:12px;
+        bottom:12px;
+        padding:10px 12px;
+      }
+    }
+  </style>
+</head>
+
+<body class="lang-kz">
+  <div class="page" id="top">
+
+    <header class="topbar">
+      <div class="brand">
+        <div class="brand-logo">P</div>
+        <div class="brand-text">
+          <h1 class="brand-title">
+            <span class="kz">Педагогика | Магистратураға дайындық</span>
+            <span class="ru">Педагогика | Подготовка к магистратуре</span>
+          </h1>
+          <p class="brand-subtitle">
+            <span class="kz">Загвязинский В.И., Емельянова И.Н. бойынша</span>
+            <span class="ru">По книге Загвязинского В.И., Емельяновой И.Н.</span>
+          </p>
+        </div>
+      </div>
+
+      <div class="lang-switch" aria-label="Language switcher">
+        <button class="lang-btn" data-lang="kz" onclick="setLang('kz')">KZ</button>
+        <button class="lang-btn" data-lang="ru" onclick="setLang('ru')">RU</button>
+      </div>
+    </header>
+
+    <section class="hero" id="home">
+      <div class="hero-kicker">
+        <span class="kz">КТ форматы</span>
+        <span class="ru">Формат КТ</span>
+      </div>
+
+      <h1>
+        <span class="kz">Оқыту және тәрбиелеу теориясы</span>
+        <span class="ru">Теория обучения и воспитания</span>
+      </h1>
+
+      <p>
+        <span class="kz">
+          Материал кітаптың нақты тараулары мен бөлімдері бойынша берілген.
+          Әр бөлімде қысқаша теория, негізгі ұғымдар және КТ стиліндегі тесттер болады.
+        </span>
+        <span class="ru">
+          Материал расположен по реальным главам и разделам книги.
+          В каждом разделе будут краткая теория, основные понятия и тесты в стиле КТ.
+        </span>
+      </p>
+
+      <div class="hero-meta">
+        <span class="pill">
+          <span class="kz">5 жауап нұсқасы</span>
+          <span class="ru">5 вариантов ответа</span>
+        </span>
+        <span class="pill">
+          <span class="kz">1 дұрыс жауап</span>
+          <span class="ru">1 правильный ответ</span>
+        </span>
+        <span class="pill">
+          <span class="kz">KZ / RU</span>
+          <span class="ru">KZ / RU</span>
+        </span>
+      </div>
+    </section>
+
+    <main id="mainView">
+
+      <section id="chapterMenu">
+        <div class="section-head">
+          <div>
+            <h2>
+              <span class="kz">Тараулар</span>
+              <span class="ru">Главы</span>
+            </h2>
+            <p>
+              <span class="kz">Керекті тарауды таңдаңыз.</span>
+              <span class="ru">Выберите нужную главу.</span>
+            </p>
+          </div>
+        </div>
+
+        <div class="mini-grid">
+
+          <button class="chapter-card" onclick="openChapter('ch1')">
+            <span class="card-num">1</span>
+            <span class="card-title">
+              <span class="kz">Білім берудің мәні</span>
+              <span class="ru">Сущность образования</span>
+            </span>
+            <span class="card-sub">
+              <span class="kz">құрылымы және жаңару үдерістері</span>
+              <span class="ru">структура и процессы обновления</span>
+            </span>
+          </button>
+
+          <button class="chapter-card" onclick="openChapter('ch2')">
+            <span class="card-num">2</span>
+            <span class="card-title">
+              <span class="kz">Оқыту теориясы</span>
+              <span class="ru">Теория обучения</span>
+            </span>
+            <span class="card-sub">
+              <span class="kz">дидактика</span>
+              <span class="ru">дидактика</span>
+            </span>
+          </button>
+
+          <button class="chapter-card" onclick="openChapter('ch3')">
+            <span class="card-num">3</span>
+            <span class="card-title">
+              <span class="kz">Дамыта оқыту</span>
+              <span class="ru">Развивающее обучение</span>
+            </span>
+            <span class="card-sub">
+              <span class="kz">теориялар, әдістер, модельдер</span>
+              <span class="ru">теории, методы, модели</span>
+            </span>
+          </button>
+
+          <button class="chapter-card" onclick="openChapter('ch4')">
+            <span class="card-num">4</span>
+            <span class="card-title">
+              <span class="kz">Тәрбиенің негіздері</span>
+              <span class="ru">Основы воспитания</span>
+            </span>
+            <span class="card-sub">
+              <span class="kz">үдеріс, заңдылық, әдістер</span>
+              <span class="ru">процесс, закономерности, методы</span>
+            </span>
+          </button>
+
+          <button class="chapter-card" onclick="openChapter('ch5')">
+            <span class="card-num">5</span>
+            <span class="card-title">
+              <span class="kz">Құзыреттерді қалыптастыру</span>
+              <span class="ru">Формирование компетенций</span>
+            </span>
+            <span class="card-sub">
+              <span class="kz">әлеуметтік-тұлғалық бағыт</span>
+              <span class="ru">социально-личностное направление</span>
+            </span>
+          </button>
+
+        </div>
+      </section>
+
+      <section class="chapter-page" id="ch1">
+        <div class="back-row">
+          <button class="back-btn" onclick="goHome()">
+            <span class="kz">← Тарауларға қайту</span>
+            <span class="ru">← К главам</span>
+          </button>
+        </div>
+
+        <div class="chapter-title-box">
+          <h2>
+            <span class="kz">1-тарау. Білім берудің мәні, құрылымы және жаңару үдерістері</span>
+            <span class="ru">Глава 1. Сущность образования, его структура и процессы обновления</span>
+          </h2>
+          <p>
+            <span class="kz">Бөлімді таңдаңыз.</span>
+            <span class="ru">Выберите раздел.</span>
+          </p>
+        </div>
+
+        <div class="mini-grid">
+          <button class="mini-card" onclick="openSection('s1_1')">
+            <span class="card-num">1.1</span>
+            <span class="card-title">
+              <span class="kz">Білім берудің тарихи миссиясы</span>
+              <span class="ru">Историческая миссия образования</span>
+            </span>
+          </button>
+
+          <button class="mini-card" onclick="openSection('s1_2')">
+            <span class="card-num">1.2</span>
+            <span class="card-title">
+              <span class="kz">Құндылық бағдарлар, мақсаттар, нәтижелер</span>
+              <span class="ru">Ценности, цели, результаты образования</span>
+            </span>
+          </button>
+
+          <button class="mini-card" onclick="openSection('s1_3')">
+            <span class="card-num">1.3</span>
+            <span class="card-title">
+              <span class="kz">Дидактика және тәрбие теориясының ұғымдары</span>
+              <span class="ru">Понятийная система дидактики и воспитания</span>
+            </span>
+          </button>
+
+          <button class="mini-card" onclick="openSection('s1_4')">
+            <span class="card-num">1.4</span>
+            <span class="card-title">
+              <span class="kz">Тұтас педагогикалық үдеріс заңдылықтары</span>
+              <span class="ru">Закономерности и принципы целостного процесса</span>
+            </span>
+          </button>
+
+          <button class="mini-card" onclick="openSection('s1_5')">
+            <span class="card-num">1.5</span>
+            <span class="card-title">
+              <span class="kz">Тұлға дамуының факторлары</span>
+              <span class="ru">Факторы развития личности</span>
+            </span>
+          </button>
+
+          <button class="mini-card" onclick="openSection('s1_6')">
+            <span class="card-num">1.6</span>
+            <span class="card-title">
+              <span class="kz">Білім берудің әлеуметтік функциялары</span>
+              <span class="ru">Социальные функции образования</span>
+            </span>
+          </button>
+
+          <button class="mini-card" onclick="openSection('s1_7')">
+            <span class="card-num">1.7</span>
+            <span class="card-title">
+              <span class="kz">Құзыреттілік тәсіл</span>
+              <span class="ru">Компетентностный подход</span>
+            </span>
+          </button>
+        </div>
+      </section>
+
+      <section class="chapter-page" id="ch2">
+        <div class="back-row">
+          <button class="back-btn" onclick="goHome()">
+            <span class="kz">← Тарауларға қайту</span>
+            <span class="ru">← К главам</span>
+          </button>
+        </div>
+
+        <div class="chapter-title-box">
+          <h2>
+            <span class="kz">2-тарау. Оқыту теориясы / дидактика</span>
+            <span class="ru">Глава 2. Теория обучения / дидактика</span>
+          </h2>
+          <p>
+            <span class="kz">Бөлімді таңдаңыз.</span>
+            <span class="ru">Выберите раздел.</span>
+          </p>
+        </div>
+
+        <div class="mini-grid">
+          <button class="mini-card" onclick="openSection('s2_1')">
+            <span class="card-num">2.1</span>
+            <span class="card-title">
+              <span class="kz">Дидактиканың пәні мен міндеттері</span>
+              <span class="ru">Предмет и задачи дидактики</span>
+            </span>
+          </button>
+
+          <button class="mini-card" onclick="openSection('s2_2')">
+            <span class="card-num">2.2</span>
+            <span class="card-title">
+              <span class="kz">Дамыта оқыту</span>
+              <span class="ru">Развивающее обучение</span>
+            </span>
+          </button>
+
+          <button class="mini-card" onclick="openSection('s2_3')">
+            <span class="card-num">2.3</span>
+            <span class="card-title">
+              <span class="kz">Оқыту мазмұны</span>
+              <span class="ru">Содержание обучения</span>
+            </span>
+          </button>
+
+          <button class="mini-card" onclick="openSection('s2_4')">
+            <span class="card-num">2.4</span>
+            <span class="card-title">
+              <span class="kz">Оқу үдерісінің заңдары мен қағидалары</span>
+              <span class="ru">Законы и принципы учебного процесса</span>
+            </span>
+          </button>
+        </div>
+      </section>
+
+      <section class="chapter-page" id="ch3">
+        <div class="back-row">
+          <button class="back-btn" onclick="goHome()">
+            <span class="kz">← Тарауларға қайту</span>
+            <span class="ru">← К главам</span>
+          </button>
+        </div>
+
+        <div class="chapter-title-box">
+          <h2>
+            <span class="kz">3-тарау. Дамыта оқытудың теориялары, әдістері және модельдері</span>
+            <span class="ru">Глава 3. Теории, методы и комплексные модели развивающего обучения</span>
+          </h2>
+          <p>
+            <span class="kz">Бөлімді таңдаңыз.</span>
+            <span class="ru">Выберите раздел.</span>
+          </p>
+        </div>
+
+        <div class="mini-grid">
+          <button class="mini-card" onclick="openSection('s3_1')">
+            <span class="card-num">3.1</span>
+            <span class="card-title">
+              <span class="kz">Жалпы ережелер</span>
+              <span class="ru">Общие положения</span>
+            </span>
+          </button>
+
+          <button class="mini-card" onclick="openSection('s3_2')">
+            <span class="card-num">3.2</span>
+            <span class="card-title">
+              <span class="kz">Оқыту әдістері мен құралдары</span>
+              <span class="ru">Методы и средства обучения</span>
+            </span>
+          </button>
+
+          <button class="mini-card" onclick="openSection('s3_3')">
+            <span class="card-num">3.3</span>
+            <span class="card-title">
+              <span class="kz">Дәстүрлі теориялар мен модельдер</span>
+              <span class="ru">Традиционные теории и модели</span>
+            </span>
+          </button>
+
+          <button class="mini-card" onclick="openSection('s3_4')">
+            <span class="card-num">3.4</span>
+            <span class="card-title">
+              <span class="kz">Жаңа модельдер мен технологиялар</span>
+              <span class="ru">Новые модели и технологии</span>
+            </span>
+          </button>
+
+          <button class="mini-card" onclick="openSection('s3_5')">
+            <span class="card-num">3.5</span>
+            <span class="card-title">
+              <span class="kz">Дәстүрлі және жаңа тәсілдерді біріктіру</span>
+              <span class="ru">Интеграция традиционных и новых подходов</span>
+            </span>
+          </button>
+        </div>
+      </section>
+
+      <section class="chapter-page" id="ch4">
+        <div class="back-row">
+          <button class="back-btn" onclick="goHome()">
+            <span class="kz">← Тарауларға қайту</span>
+            <span class="ru">← К главам</span>
+          </button>
+        </div>
+
+        <div class="chapter-title-box">
+          <h2>
+            <span class="kz">4-тарау. Тәрбиенің жалпы негіздері</span>
+            <span class="ru">Глава 4. Общие основы воспитания</span>
+          </h2>
+          <p>
+            <span class="kz">Бөлімді таңдаңыз.</span>
+            <span class="ru">Выберите раздел.</span>
+          </p>
+        </div>
+
+        <div class="mini-grid">
+          <button class="mini-card" onclick="openSection('s4_1')">
+            <span class="card-num">4.1</span>
+            <span class="card-title">
+              <span class="kz">Тәрбиенің мәні</span>
+              <span class="ru">Сущность воспитания</span>
+            </span>
+          </button>
+
+          <button class="mini-card" onclick="openSection('s4_2')">
+            <span class="card-num">4.2</span>
+            <span class="card-title">
+              <span class="kz">Тәрбие үдерісінің қозғаушы күштері</span>
+              <span class="ru">Движущие силы воспитательного процесса</span>
+            </span>
+          </button>
+
+          <button class="mini-card" onclick="openSection('s4_3')">
+            <span class="card-num">4.3</span>
+            <span class="card-title">
+              <span class="kz">Тәрбие әдістері мен тәсілдері</span>
+              <span class="ru">Методы и приемы воспитания</span>
+            </span>
+          </button>
+        </div>
+      </section>
+
+      <section class="chapter-page" id="ch5">
+        <div class="back-row">
+          <button class="back-btn" onclick="goHome()">
+            <span class="kz">← Тарауларға қайту</span>
+            <span class="ru">← К главам</span>
+          </button>
+        </div>
+
+        <div class="chapter-title-box">
+          <h2>
+            <span class="kz">5-тарау. Әлеуметтік-тұлғалық құзыреттерді қалыптастыру</span>
+            <span class="ru">Глава 5. Формирование социально-личностных компетенций</span>
+          </h2>
+          <p>
+            <span class="kz">Бөлімді таңдаңыз.</span>
+            <span class="ru">Выберите раздел.</span>
+          </p>
+        </div>
+
+        <div class="mini-grid">
+          <button class="mini-card" onclick="openSection('s5_1')">
+            <span class="card-num">5.1</span>
+            <span class="card-title">
+              <span class="kz">Моральдық-этикалық құзырет</span>
+              <span class="ru">Морально-этическая компетенция</span>
+            </span>
+          </button>
+
+          <button class="mini-card" onclick="openSection('s5_2')">
+            <span class="card-num">5.2</span>
+            <span class="card-title">
+              <span class="kz">Әлеуметтік-азаматтық құзырет</span>
+              <span class="ru">Социально-гражданская компетенция</span>
+            </span>
+          </button>
+
+          <button class="mini-card" onclick="openSection('s5_3')">
+            <span class="card-num">5.3</span>
+            <span class="card-title">
+              <span class="kz">Кәсіби-еңбек құзыреті</span>
+              <span class="ru">Профессионально-трудовая компетенция</span>
+            </span>
+          </button>
+
+          <button class="mini-card" onclick="openSection('s5_4')">
+            <span class="card-num">5.4</span>
+            <span class="card-title">
+              <span class="kz">Эколого-валеологиялық құзырет</span>
+              <span class="ru">Эколого-валеологическая компетенция</span>
+            </span>
+          </button>
+
+          <button class="mini-card" onclick="openSection('s5_5')">
+            <span class="card-num">5.5</span>
+            <span class="card-title">
+              <span class="kz">Көркем-эстетикалық құзырет</span>
+              <span class="ru">Художественно-эстетическая компетенция</span>
+            </span>
+          </button>
+
+          <button class="mini-card" onclick="openSection('s5_6')">
+            <span class="card-num">5.6</span>
+            <span class="card-title">
+              <span class="kz">Коммуникативтік құзырет</span>
+              <span class="ru">Коммуникативная компетенция</span>
+            </span>
+          </button>
+
+          <button class="mini-card" onclick="openSection('s5_7')">
+            <span class="card-num">5.7</span>
+            <span class="card-title">
+              <span class="kz">Тұлғалық өзін-өзі жетілдіру</span>
+              <span class="ru">Личностное самосовершенствование</span>
+            </span>
+          </button>
+
+          <button class="mini-card" onclick="openSection('s5_8')">
+            <span class="card-num">5.8</span>
+            <span class="card-title">
+              <span class="kz">Сынып жетекшілігінің функциялары</span>
+              <span class="ru">Функции классного руководства</span>
+            </span>
+          </button>
+        </div>
+      </section>
